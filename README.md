@@ -86,6 +86,18 @@ change color of spinner
 </button>
 ```
 
+## Add success indicator
+
+````css
+.ladda-success {
+  .ladda-label {
+	.glyphicon {
+	  display:inline-block !important; //overrides default inline style
+	}
+  }
+}
+````
+
 ## Links
 
 * [Ladda](http://lab.hakim.se/ladda/)
