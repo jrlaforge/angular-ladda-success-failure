@@ -16,6 +16,7 @@
           restrict: 'A',
           link: function (scope, element, attrs) {
             element.addClass('ladda-button');
+            element.append(' <span style="display:none" class="glyphicon glyphicon-ok"></span>');
             if(angular.isUndefined(element.attr('data-style'))) {
               element.attr('data-style', 'zoom-in');
             }
@@ -31,7 +32,13 @@
                   ladda.setProgress(loading);
                 }
               } else {
-                ladda.stop();
+                if (ladda.isLoading()) {
+                  ladda.stop();
+                  element.addClass('ladda-success');
+                  setTimeout(function () {
+                    element.removeClass('ladda-success');
+                  }, 1000);
+                }
               }
             });
           }
