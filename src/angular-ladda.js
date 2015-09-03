@@ -17,6 +17,7 @@
           link: function (scope, element, attrs) {
             element.addClass('ladda-button');
             element.append(' <span style="display:none" class="glyphicon glyphicon-ok"></span>');
+            element.append(' <span style="display:none" class="glyphicon glyphicon-remove"></span>');
             if(angular.isUndefined(element.attr('data-style'))) {
               element.attr('data-style', 'zoom-in');
             }
@@ -34,10 +35,16 @@
               } else {
                 if (ladda.isLoading()) {
                   ladda.stop();
-                  element.addClass('ladda-success');
+                  console.log(scope.btn_error);
+                  var ladda_class='ladda-success';
+                  if(scope.btn_error){
+                    var ladda_class='ladda-remove';
+
+                  }
+                  element.addClass(ladda_class);
                   setTimeout(function () {
-                    element.removeClass('ladda-success');
-                  }, 1000);
+                    element.removeClass(ladda_class);
+                  }, 2000);
                 }
               }
             });
