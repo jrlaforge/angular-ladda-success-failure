@@ -2,6 +2,41 @@
 
 An angular directive wrapper for Ladda.
 
+Fork of angular-ladda-with-success
+
+Adding success and failure button
+
+Add this to your styles : 
+
+```css
+.ladda-success
+  .ladda-label
+	.glyphicon-ok {
+	  display:inline-block !important; //overrides default inline style
+	}
+
+.ladda-remove
+  .ladda-label
+	.glyphicon-remove {
+	  display:inline-block !important; //overrides default inline style
+	}
+```
+
+To add error icon after loading
+
+```javascript
+    $scope.btn_error = false;
+    $scope[loadingBtn] = false;
+```
+
+To add success icon after loading
+
+```javascript
+    $scope.btn_error = true;
+    $scope[loadingBtn] = false;
+```
+
+
 [Check out the demo page.](http://remotty.github.io/angular-ladda)
 
 
